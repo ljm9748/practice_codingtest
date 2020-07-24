@@ -1,19 +1,16 @@
 def solution(name):
     answer = 0
+    name=list(name)
     slen=len(name)
-    mylist=[False for _ in range(slen)]
     findcnt=0
-    for i in range(slen):
-        if name[i]=='A':
-            mylist[i]=True
-            findcnt +=1
-    #print("answer1: ", answer)
     now=0
     #print(mylist)
-    if mylist[0]==False:
-        mylist[now]=True
+    for i in range(slen):
+        if name[i]=='A':
+            findcnt+=1
+    
+    if name[now]!='A':
         tmp= ord(name[now])-ord('A')
-    #    print("??", tmp) 
         if tmp<13:
             answer +=tmp
         else:
@@ -27,7 +24,7 @@ def solution(name):
         tmp1= now+1
         tmp2= now-1
         while play:
-            if(mylist[tmp1%slen]==True):
+            if(name[tmp1%slen]=='A'):
                 tmp1 +=1
             else: 
                 play=False
@@ -35,7 +32,7 @@ def solution(name):
                 answer += tmp1-now
                 now=tmp1%slen
                 break
-            if(mylist[tmp2+slen]==True):
+            if(name[tmp2+slen]=='A'):
                 tmp2 -=1
                 
             else: 
@@ -46,8 +43,8 @@ def solution(name):
                 now=slen+tmp2
                 break
         
-        mylist[now]=True
         tmp= ord(name[now])-ord('A')
+        name[now]='A'
     #    print("??", tmp) 
         if tmp<13:
             answer +=tmp
@@ -58,7 +55,7 @@ def solution(name):
             
 
 #    print (mylist)
-#    print("answer: ", answer)
+    print("answer: ", answer)
     return answer
 
 solution("JEROEN")
