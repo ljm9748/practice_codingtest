@@ -55,7 +55,7 @@ def solution(name):
             
 
 #    print (mylist)
-    print("answer: ", answer)
+#    print("answer: ", answer)
     return answer
 
 solution("JEROEN")
