@@ -10,9 +10,7 @@ n, m, x, y, k= map(int, input().split())
 for _ in range(n):
     mymap.append(list(map(int, input().split())))
 order=list(map(int, input().split()))
-print(order)
-
-
+#print(order)
 
 def movedice(way):
     global mydiceA, mydiceB
@@ -32,15 +30,14 @@ def movedice(way):
 for ord in order:
     x += dx[ord]
     y += dy[ord]
-    if (0 <= x < n) and (0<= y < m):
+    if (0 <= x < n) and (0<= y < m): #범위안
         movedice(ord)
         if mymap[x][y]==0:
             mymap[x][y]=mydiceA[2]
         else:
             mydiceB[2]=mymap[x][y]
+            mymap[x][y]=0
         print(mydiceB[0])
-    else:
+    else: #범위밖
         x -= dx[ord]
-        y -= dy[ord]
-        
-            
+        y -= dy[ord]     
